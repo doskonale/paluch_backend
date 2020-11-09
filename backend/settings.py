@@ -123,5 +123,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = "/srv/paluch_backend/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    '/srv/paluch_backend/static/',
 ]
