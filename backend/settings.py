@@ -120,7 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = "/srv/paluch_backend/static/"
+STATIC_ROOT = "/srv/paluch_backend/assets/"
 STATICFILES_DIRS = [
-    BASE_DIR / "static"
+    BASE_DIR / "static", "/srv/paluch_backend/static/"
 ]
