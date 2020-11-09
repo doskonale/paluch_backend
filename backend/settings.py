@@ -122,5 +122,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = "/srv/paluch_backend/assets/"
 STATICFILES_DIRS = [
-    BASE_DIR / "static"
+    BASE_DIR / "assets"
 ]
