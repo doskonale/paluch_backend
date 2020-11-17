@@ -9,3 +9,10 @@ from rest_framework.authtoken.models import Token
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
+
+
+class File(models.Model):
+    type = models.CharField(max_length=50)
+    file = models.FileField(blank=False, null=False)
+    def __str__(self):
+        return self.file.name        
