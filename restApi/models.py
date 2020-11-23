@@ -13,6 +13,6 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 
 class File(models.Model):
     type = models.CharField(max_length=50)
-    file = models.FileField(blank=False, null=False)
+    file = models.FileField(blank=False, null=False, upload_to='media/')
     def __str__(self):
         return self.file.name        
