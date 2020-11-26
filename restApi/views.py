@@ -32,6 +32,8 @@ class FileViewSet(viewsets.ModelViewSet):
     serializer_class = FileSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     parser_class = (FileUploadParser,)
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['name', 'type']
 
     def post(self, request, *args, **kwargs):
 
