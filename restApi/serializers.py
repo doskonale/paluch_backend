@@ -17,4 +17,4 @@ class GroupSerializer(serializers.ModelSerializer):
 class FileSerializer(serializers.ModelSerializer):
     class Meta:
         model = File
-        fields = ['id', 'file', 'type']
+        fields = ['id', 'file', 'type', 'name']
