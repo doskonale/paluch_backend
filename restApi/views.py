@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from django_filters.rest_framework import DjangoFilterBackend
-from restApi.serializers import UserSerializer, GroupSerializer,FileSerializer
-from restApi.models import File
+from restApi.serializers import UserSerializer, GroupSerializer,FileSerializer, PostSerializer
+from restApi.models import File, Post
 
 from rest_framework import viewsets
 from rest_framework import permissions
@@ -27,13 +27,32 @@ class GroupViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['title', 'start_date', 'end_date']
+    parser_class = (FileUploadParser,)
+
+    def post(self, request, *args, **kwargs):
+      import pdb; pdb.set_trace()
+      file_serializer = FileSerializer(data=request.data)
+
+      if file_serializer.is_valid():
+          file_serializer.save()
+          return Response(file_serializer.data, status=status.HTTP_201_CREATED)
+      else:
+          return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 class FileViewSet(viewsets.ModelViewSet):
     queryset = File.objects.all()
     serializer_class = FileSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     parser_class = (FileUploadParser,)
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['name', 'type']
+    filterset_fields = ['name', 'type','module']
 
     def post(self, request, *args, **kwargs):
 
