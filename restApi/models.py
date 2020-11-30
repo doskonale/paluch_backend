@@ -12,7 +12,7 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 
 
 class File(models.Model):
-    name = models.CharField(max_length=500,blank=False, null=True,)
+    module = models.CharField(max_length=100,blank=False, null=True,)
     type = models.CharField(max_length=50)
     file = models.FileField(blank=False, null=False, upload_to='media/')
     def __str__(self):
