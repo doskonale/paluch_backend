@@ -37,7 +37,7 @@ class PostViewSet(viewsets.ModelViewSet):
 
     def post(self, request, *args, **kwargs):
       import pdb; pdb.set_trace()
-      file_serializer = FileSerializer(data=request.data)
+      file_serializer = PostSerializer(data=request.data)
 
       if file_serializer.is_valid():
           file_serializer.save()
