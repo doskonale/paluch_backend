@@ -22,7 +22,7 @@ class File(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=300,blank=False, null=True)
-    content = models.CharField(blank=False, null=True)
+    content = models.TextField(blank=False, null=True)
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
     def __str__(self):
