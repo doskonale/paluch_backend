@@ -22,6 +22,7 @@ class File(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=300,blank=False, null=True)
+    created = models.DateTimeField(auto_now_add=True, blank=False, null=True)
     content = models.TextField(blank=False, null=True)
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
