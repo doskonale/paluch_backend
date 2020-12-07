@@ -33,17 +33,6 @@ class PostViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['title', 'start_date', 'end_date']
-    parser_class = (FileUploadParser,)
-
-    def post(self, request, *args, **kwargs):
-      import pdb; pdb.set_trace()
-      file_serializer = PostSerializer(data=request.data)
-
-      if file_serializer.is_valid():
-          file_serializer.save()
-          return Response(file_serializer.data, status=status.HTTP_201_CREATED)
-      else:
-          return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class FileViewSet(viewsets.ModelViewSet):

@@ -22,9 +22,8 @@ class File(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=300,blank=False, null=True)
-    content = models.CharField(max_length=5000,blank=False, null=True)
+    content = models.CharField(blank=False, null=True)
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
-    file = models.FileField(blank=True, null=True, upload_to='media/')
     def __str__(self):
         return self.title       

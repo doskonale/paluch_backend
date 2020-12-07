@@ -17,7 +17,7 @@ class GroupSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ['id', 'title', 'content', 'start_date', 'end_date', 'file']
+        fields = ['id', 'title', 'content', 'start_date', 'end_date']
 
 
 class FileSerializer(serializers.ModelSerializer):
