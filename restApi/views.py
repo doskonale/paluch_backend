@@ -32,7 +32,7 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['title', 'start_date', 'end_date']
+    filterset_fields = filterset_fields = {'title':['exact'], 'start_date':['gte', 'lte', 'exact', 'gt', 'lt'], 'end_date':['gte', 'lte', 'exact', 'gt', 'lt'] }
 
 
 class FileViewSet(viewsets.ModelViewSet):
