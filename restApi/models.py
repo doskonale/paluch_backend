@@ -26,7 +26,7 @@ class Post(models.Model):
     content = models.TextField(blank=False, null=True)
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
-    side_nav = models.BooleanField(default=False)
+    side_nav = models.BooleanField(blank=True, null=True)
     def __str__(self):
         return self.title       
 
