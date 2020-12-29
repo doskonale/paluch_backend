@@ -20,10 +20,6 @@ class File(models.Model):
     file = models.FileField(blank=False, null=False, upload_to='media/')
     def __str__(self):
         return self.file.name        
-    def delete(self, using=None, keep_parents=False):
-        self.song.storage.delete(self.song.name)
-        self.image.storage.delete(self.song.name)
-        super().delete()
 
 @receiver(post_delete, sender=File)
 def submission_delete(sender, instance, **kwargs):
