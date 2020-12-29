@@ -9,7 +9,7 @@ router.register(r'files', views.FileViewSet)
 router.register(r'posts', views.PostViewSet)
 
 urlpatterns = [
-    path(r'^api/', include(router.urls)),
+    path('api/', include(router.urls)),
     path('api/api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/api-token-auth/', views.ExtendedAuthToken.as_view()),
 ]
