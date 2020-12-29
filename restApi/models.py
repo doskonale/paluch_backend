@@ -13,10 +13,6 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
 
-@receiver(post_delete, sender=MyModel)
-def submission_delete(sender, instance, **kwargs):
-    instance.file.delete(False) 
-    
 class File(models.Model):
     name = models.CharField(max_length=500,blank=True, null=True)
     module = models.CharField(max_length=500,blank=False, null=True)
@@ -28,6 +24,10 @@ class File(models.Model):
         self.song.storage.delete(self.song.name)
         self.image.storage.delete(self.song.name)
         super().delete()
+
+@receiver(post_delete, sender=File)
+def submission_delete(sender, instance, **kwargs):
+    instance.file.delete(False) 
 
 class Post(models.Model):
     title = models.CharField(max_length=300,blank=False, null=True)
