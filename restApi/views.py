@@ -28,6 +28,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 class GardenInfoViewSet(viewsets.ModelViewSet):
+    pagination_class = None
     queryset = GardenInfo.objects.all()
     serializer_class = GardenInfoSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -48,7 +49,6 @@ class FileViewSet(viewsets.ModelViewSet):
     parser_class = (FileUploadParser,)
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['name', 'type','module']
-
     def post(self, request, *args, **kwargs):
 
       file_serializer = FileSerializer(data=request.data)
