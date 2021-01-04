@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from django_filters.rest_framework import DjangoFilterBackend
-from restApi.serializers import UserSerializer, GroupSerializer,FileSerializer, PostSerializer
+from restApi.serializers import UserSerializer, GroupSerializer,FileSerializer, PostSerializer, GardenInfoSerializer
 from restApi.models import File, Post, GardenInfo
 
 from rest_framework import viewsets
