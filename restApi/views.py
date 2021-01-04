@@ -29,7 +29,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 class GardenInfoViewSet(viewsets.ModelViewSet):
     pagination_class = None
-    queryset = GardenInfo.objects.all()
+    queryset = GardenInfo.objects.all().order_by('id')
     serializer_class = GardenInfoSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
