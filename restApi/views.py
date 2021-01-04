@@ -30,7 +30,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 class GardenInfoViewSet(viewsets.ModelViewSet):
     queryset = GardenInfo.objects.all()
     serializer_class = GardenInfoSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 class PostViewSet(viewsets.ModelViewSet):
