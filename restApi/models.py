@@ -25,6 +25,7 @@ class File(models.Model):
 def submission_delete(sender, instance, **kwargs):
     instance.file.delete(False) 
 
+
 class Post(models.Model):
     title = models.CharField(max_length=300,blank=False, null=True)
     created = models.DateTimeField(auto_now_add=True, blank=False, null=True)
@@ -35,16 +36,11 @@ class Post(models.Model):
     def __str__(self):
         return self.title       
 
-# class ManagementHistory(models.Model):
-#     date = models.CharField(max_length=100,blank=False, null=True)
-#     person = models.CharField(max_length=100,blank=False, null=True)
-#     type = models.CharField(max_length=100,blank=False, null=True)
-#     def __str__(self):
-#         return self.title       
 
-# class ImoprtantEvent(models.Model):
-#     date = models.CharField(max_length=100,blank=False, null=True)
-#     event = models.CharField(max_length=500,blank=False, null=True)
-#     def __str__(self):
-#         return self.title       
+class GardenInfo(models.Model):
+    name = models.CharField(max_length=100,blank=False, null=True)
+    value = models.CharField(max_length=100,blank=False, null=True)
+    type = models.CharField(max_length=100,blank=False, null=True)
+    def __str__(self):
+        return self.name       
 

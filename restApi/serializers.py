@@ -14,6 +14,12 @@ class GroupSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 
+class GardenInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GardenInfo
+        fields = ['id', 'name', 'value', 'type']
+
+
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
