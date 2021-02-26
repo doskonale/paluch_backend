@@ -44,3 +44,10 @@ class GardenInfo(models.Model):
     def __str__(self):
         return self.name       
 
+
+class GardenHistory(models.Model):
+    column1 = models.CharField(max_length=100,blank=False, null=True)
+    column2 = models.CharField(max_length=500,blank=False, null=True)
+    column3 = models.CharField(max_length=100,blank=False, null=True)
+    def __str__(self):
+        return self.name       

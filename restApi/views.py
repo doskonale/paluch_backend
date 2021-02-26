@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from django_filters.rest_framework import DjangoFilterBackend
-from restApi.serializers import UserSerializer, GroupSerializer,FileSerializer, PostSerializer, GardenInfoSerializer
-from restApi.models import File, Post, GardenInfo
+from restApi.serializers import UserSerializer, GroupSerializer,FileSerializer, PostSerializer, GardenInfoSerializer, GardenHistorySerializer
+from restApi.models import File, Post, GardenInfo, GardenHistory
 
 from rest_framework import viewsets
 from rest_framework import permissions
@@ -31,6 +31,13 @@ class GardenInfoViewSet(viewsets.ModelViewSet):
     pagination_class = None
     queryset = GardenInfo.objects.all().order_by('id')
     serializer_class = GardenInfoSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+class GardenHistoryViewSet(viewsets.ModelViewSet):
+    pagination_class = None
+    queryset = GardenHistory.objects.all().order_by('id')
+    serializer_class = GardenHistorySerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 

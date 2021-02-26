@@ -8,6 +8,7 @@ router.register(r'groups', views.GroupViewSet)
 router.register(r'files', views.FileViewSet)
 router.register(r'posts', views.PostViewSet)
 router.register(r'info', views.GardenInfoViewSet)
+router.register(r'history', views.GardenInfoViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),

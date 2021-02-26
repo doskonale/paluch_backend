@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from restApi.models import File, Post, GardenInfo
+from restApi.models import File, Post, GardenInfo, GardenHistory
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,6 +17,12 @@ class GroupSerializer(serializers.ModelSerializer):
 class GardenInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = GardenInfo
+        fields = ['id', 'name', 'value', 'type']
+
+
+class GardenHistorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GardenHistory
         fields = ['id', 'name', 'value', 'type']
 
 
