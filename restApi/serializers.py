@@ -23,7 +23,7 @@ class GardenInfoSerializer(serializers.ModelSerializer):
 class GardenHistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = GardenHistory
-        fields = ['id', 'name', 'value', 'type']
+        fields = ['id', 'column1', 'column2', 'column3']
 
 
 class PostSerializer(serializers.ModelSerializer):
